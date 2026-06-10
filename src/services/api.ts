@@ -238,7 +238,7 @@ export async function fetchUserList(): Promise<{ success: boolean; users: User[]
 axios.interceptors.response.use(
   response => response,
   error => {
-    if (error.response.status === 401) {
+    if (error.response?.status === 401) {
       handleLogoutAndRedirect();
     }
     return Promise.reject(error);
